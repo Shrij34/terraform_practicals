@@ -6,7 +6,7 @@ resource "aws_instance" "base" {
 ami = "ami-04b2519c83e2a7ea5"
 instance_type = "t2.micro"
 key_name = "${aws_key_pair.keypair.key_name}"
-vpc_security_group_ids = [aws_security_group.allow_ports.id]
+vpc_security_group_ids = ["${aws_security_group.allow_ports.id}"]
 user_data= <<-EOF
              #!/bin/bash
               yum install httpd -y
